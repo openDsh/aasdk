@@ -43,13 +43,13 @@ message ButtonCode
         PLAY = 0x7E;
         PAUSE = 0x7F;
         MUSIC = 0xD1;
-        SCROLL_WHEEL = 0x1000;
-        MEDIA = 0x1001;
-        NAVIGATION = 0x1002;
-        RADIO = 0x1003;
-        TEL = 0x1004;
-        PRIMARY_BUTTON = 0x1005;
-        SECONDARY_BUTTON = 0x1006;
-        TERTIARY_BUTTON = 0x1007;
+        SCROLL_WHEEL = 0x10000;
+        MEDIA = 0x10001;
+        NAVIGATION = 0x10002;
+        RADIO = 0x10003;
+        TEL = 0x10004;
+        PRIMARY_BUTTON = 0x10005;
+        SECONDARY_BUTTON = 0x10006;
+        TERTIARY_BUTTON = 0x10007;
     }
 }
