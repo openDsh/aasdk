@@ -1,0 +1,10 @@
+Package: aasdk
+Version: __VERSION__
+Depends: libprotobuf17
+Recommends: lsb-release
+Section: devel
+Priority: optional
+Architecture: amd64
+Installed-Size: __FILESIZE__
+Maintainer: Kyle Gordon <kyle@glasgownet.com>
+Description: aasdk package.
