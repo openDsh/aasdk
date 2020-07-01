@@ -3,7 +3,7 @@ FROM debian:latest AS aasdk
 RUN apt-get update
 RUN apt-get -y install cmake build-essential git
 
-RUN sudo apt-get install -y protobuf-compiler libprotobuf-dev libusb-1.0.0-dev libssl-dev libboost-dev libboost-system-dev libboost-log-dev
+RUN apt-get install -y protobuf-compiler libprotobuf-dev libusb-1.0.0-dev libssl-dev libboost-dev libboost-system-dev libboost-log-dev
 
 COPY . /src
 
