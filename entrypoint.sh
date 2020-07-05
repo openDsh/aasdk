@@ -3,7 +3,7 @@ ARCH=$1
 MAJORVER=0
 echo "Now building within docker for $ARCH"
 
-# Clear out the /build and /release directory
+# Clear out the /build directory
 rm -rf /build/*
 
 BUILD_VERSION=$(git rev-parse --short HEAD)
