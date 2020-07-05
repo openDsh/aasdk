@@ -13,7 +13,7 @@ DEBIAN_BUILD_VERSION=${MAJORVER}-${BUILD_VERSION}
 
 # Configure, make, make install
 mkdir /aasdk_build; cd /aasdk_build
-cmake -DCMAKE_BUILD_TYPE=Release ../src
+cmake -DCMAKE_BUILD_TYPE=Release -DTARGET_ARCH=$ARCH ../src
 make -j4
 fakeroot make install DESTDIR=/build
 

@@ -7,6 +7,29 @@ endif()
 
 project(aasdk CXX)
 
+if( NOT TARGET_ARCH )
+    message("No architecture defined - guessing from detected CPU - ${CMAKE_SYSTEM_PROCESSOR}")
+    if(${CMAKE_SYSTEM_PROCESSOR} STREQUAL "x86_64")
+        set(TARGET_ARCH "x86_64")
+    elseif(${CMAKE_SYSTEM_PROCESSOR} STREQUAL "amd64")
+        set(TARGET_ARCH "x86_64")
+    elseif(${CMAKE_SYSTEM_PROCESSOR} STREQUAL "AMD64")
+        set(TARGET_ARCH "x86_64")
+    elseif(${CMAKE_SYSTEM_PROCESSOR} STREQUAL "armv7l")
+        # Pi 3
+        set(TARGET_ARCH "armhf")
+    endif()
+    message("Chosen ${TARGET_ARCH}")
+endif()
+
+if( TARGET_ARCH STREQUAL "amd64" )
+    message("Building for amd64")
+elseif( TARGET_ARCH STREQUAL "armhf" )
+    message("Building for armhf")
+    set(CMAKE_C_COMPILER /usr/bin/arm-linux-gnueabihf-gcc-8)
+    set(CMAKE_CXX_COMPILER /usr/bin/arm-linux-gnueabihf-g++-8)
+endif()
+
 set(base_directory ${CMAKE_CURRENT_SOURCE_DIR})
 set(sources_directory ${base_directory}/src)
 
