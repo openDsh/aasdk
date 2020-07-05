@@ -24,5 +24,4 @@ RUN ./resources/patch-libboost-log-deb.sh
 # Make Executable
 RUN chmod +x /entrypoint.sh
 
-# ENTRYPOINT ["/entrypoint.sh"]
-CMD /bin/bash
+ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
