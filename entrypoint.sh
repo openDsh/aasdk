@@ -1,8 +1,10 @@
 #!/bin/bash
+ARCH=$1
+MAJORVER=0
+echo "Now building within docker for $ARCH"
 
 # Clear out the /build and /release directory
 rm -rf /build/*
-rm -rf /release/*
 
 BUILD_VERSION=$(git rev-parse --short HEAD)
 BUILD_VERSION_TAG=$(git describe --tags $(git rev-list --tags --max-count=1))
