@@ -43,7 +43,7 @@ cp /src/resources/control.in /build/DEBIAN/control
 # Fill in the information in the control file
 sed -i "s/__VERSION__/${DEBIAN_BUILD_VERSION}/g" /build/DEBIAN/control
 sed -i "s/__FILESIZE__/${INSTALL_SIZE}/g" /build/DEBIAN/control
-sed -i "s/__ARCHITECTURE__/${TARGET_ARCH}/g" /build/DEBIAN/control
+sed -i "s/__ARCHITECTURE__/${ARCH}/g" /build/DEBIAN/control
 
 # Build our Debian package
 fakeroot dpkg-deb -b "/build"
