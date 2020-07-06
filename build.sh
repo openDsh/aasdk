@@ -1,9 +1,6 @@
 # Prep the build environment
 docker build -t aasdk_builder .
 
-#  Execute entrypoint.sh and retrieve the build assets
-docker run \
-    -v $(pwd)/build:/build \
-    -v $(pwd)/release:/release \
-    --name aasdk_build_$(date "+%s") \
-    aasdk_builder
+#  Execute entrypoint.sh and save build assets in release directory
+docker run -v "${PWD}/release":/release aasdk_builder:latest amd64
+docker run -v "${PWD}/release":/release aasdk_builder:latest armhf
