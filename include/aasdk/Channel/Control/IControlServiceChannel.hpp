@@ -26,6 +26,7 @@
 #include <aasdk_proto/NavigationFocusResponseMessage.pb.h>
 #include <aasdk_proto/StatusEnum.pb.h>
 #include <aasdk_proto/PingRequestMessage.pb.h>
+#include <aasdk_proto/VoiceSessionRequestMessage.pb.h>
 #include <aasdk/Common/Data.hpp>
 #include <aasdk/Channel/Promise.hpp>
 #include <aasdk/Channel/Control/IControlServiceChannelEventHandler.hpp>
@@ -57,6 +58,7 @@ public:
     virtual void sendShutdownResponse(const proto::messages::ShutdownResponse& response, SendPromise::Pointer promise) = 0;
     virtual void sendNavigationFocusResponse(const proto::messages::NavigationFocusResponse& response, SendPromise::Pointer promise) = 0;
     virtual void sendPingRequest(const proto::messages::PingRequest& request, SendPromise::Pointer promise) = 0;
+    virtual void sendPingResponse(const proto::messages::PingResponse& response, SendPromise::Pointer promise) = 0;
 };
 
 }
