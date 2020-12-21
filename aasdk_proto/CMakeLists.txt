@@ -8,6 +8,6 @@ add_library(aasdk_proto SHARED ${proto_headers} ${proto_sources})
 target_link_libraries(aasdk_proto ${PROTOBUF_LIBRARIES})
 
 install(TARGETS aasdk_proto DESTINATION lib)
-install(DIRECTORY . DESTINATION include/aasdk_proto
+install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR} DESTINATION include
     FILES_MATCHING PATTERN *.h
     PATTERN CMakeFiles EXCLUDE )
