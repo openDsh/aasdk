@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 3.5.1)
 
+set (AASDK_VERSION_MAJOR 2)
+set (AASDK_VERSION_MINOR 1)
+set (AASDK_VERSION_PATCH 0)
+
 find_program(CCACHE_PROGRAM ccache)
 if(CCACHE_PROGRAM)
     set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CCACHE_PROGRAM}")
@@ -76,6 +80,10 @@ target_link_libraries(aasdk
                         ${PROTOBUF_LIBRARIES}
                         ${OPENSSL_LIBRARIES}
                         ${WINSOCK2_LIBRARIES})
+
+set(AASDK_VERSION_STRING ${AASDK_VERSION_MAJOR}.${AASDK_VERSION_MINOR}.${AASDK_VERSION_PATCH})
+set_target_properties(aasdk PROPERTIES VERSION ${AASDK_VERSION_STRING}
+                                          SOVERSION ${AASDK_VERSION_MAJOR})
 
 install(TARGETS aasdk DESTINATION lib)
 install(DIRECTORY include/aasdk DESTINATION include)
