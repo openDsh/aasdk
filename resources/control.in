@@ -1,0 +1,10 @@
+Package: aasdk
+Version: __VERSION__
+Depends: libprotobuf17, libboost-system1.67.0, libboost-log1.67.0, libboost-date-time1.67.0, libboost-log1.67.0, libboost-filesystem1.67.0, libboost-thread1.67.0, libboost-chrono1.67.0, libboost-atomic1.67.0, libssl1.1, libssl1.1, libusb-1.0-0, libstdc++6, libc6, libgcc1, libboost-regex1.67.0, libicu63, libatomic1, zlib1g, libc6, libudev1
+Recommends: lsb-release
+Section: libraries
+Priority: optional
+Architecture: __ARCHITECTURE__
+Installed-Size: __FILESIZE__
+Maintainer: Kyle Gordon <kyle@glasgownet.com>
+Description: aasdk package.

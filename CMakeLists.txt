@@ -1,5 +1,16 @@
 cmake_minimum_required(VERSION 3.5.1)
 
+if( TARGET_ARCH STREQUAL "amd64" )
+    message("Building for amd64")
+elseif( TARGET_ARCH STREQUAL "armhf" )
+    message("Building for armhf")
+    set(CMAKE_C_COMPILER /usr/bin/arm-linux-gnueabihf-gcc-8)
+    set(CMAKE_CXX_COMPILER /usr/bin/arm-linux-gnueabihf-g++-8)
+else()
+    message("Unknown target architecture. Exiting")
+    return()
+endif()
+
 find_program(CCACHE_PROGRAM ccache)
 if(CCACHE_PROGRAM)
     set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CCACHE_PROGRAM}")

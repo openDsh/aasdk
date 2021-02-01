@@ -1,0 +1,24 @@
+name: Build and test with docker
+
+on: [ push, pull_request ]
+
+jobs:
+
+  build-image:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build -t aasdk_builder --file Dockerfile .
+  build-amd64:
+    runs-on: ubuntu-latest
+    needs: build-image
+    steps:
+      - name: Build armhf Debian package
+        run: docker run -v "${PWD}/release":/release aasdk_builder:latest armhf
+  build-armhf:
+    runs-on: ubuntu-latest
+    needs: build-image
+    steps:
+      - name: Build amd64 Debian package
+        run: docker run -v "${PWD}/release":/release aasdk_builder:latest amd64
