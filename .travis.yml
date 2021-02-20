@@ -1,0 +1,7 @@
+dist: bionic
+language: c++
+script:
+    - sudo apt-get install -y protobuf-compiler libprotobuf-dev libusb-1.0.0-dev libssl-dev libboost-dev libboost-system-dev libboost-log-dev
+    - cmake -DCMAKE_BUILD_TYPE=Release .
+    - make -j4
+    - sudo make install
